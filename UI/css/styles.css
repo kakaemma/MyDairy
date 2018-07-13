@@ -17,7 +17,7 @@ h3{
     margin-bottom: -170px
 }
 .coloredBg{
-    background-image: linear-gradient(to bottom,#654a86,#534292);
+    background-image: linear-gradient(top bottom,#654a86,#534292);
     background-color: #534292;
     height: 100%;
 }
