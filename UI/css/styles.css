@@ -1,16 +1,28 @@
 html, body {
     height: 100%;
 }
+body{
+    font-family:'Helvetica Neue',helvetica,arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+
+}
 h1,h2,h3,h4,h5,h6{
     font-weight: 200;
     line-height: 1.1;
     color: #79589f;
 }
+h3{
+    font-size: 24px;
+}
 .pageWrapper{
     min-height: 100%;
     margin-bottom: -170px
 }
-.coloredBg{background-color:#534292;}
+.coloredBg{
+    background-image: linear-gradient(to bottom,#654a86,#534292);
+    background-color: #534292;
+}
 .container{
     position: relative;
     text-align: center;
@@ -27,4 +39,56 @@ h1,h2,h3,h4,h5,h6{
 }
 .container .loginPanel{
     color: #3f3f44;
+}
+.loginPanel{
+    max-width: 430px;
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+}
+.loginPanel h3 {
+    margin: -12px 0 28;
+}
+form .form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+form input[type="text"], form input[type="email"], form input[type="password"]{
+    height: 44px;
+    padding-left: 50px;
+}
+form .fieldIcon.iconUsername {
+    background: url(../images/icon-user.png);
+    background-repeat: repeat;
+}
+form .fieldIcon {
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+}
+form .fieldIcon::after {
+    content: '';
+    position: absolute;
+    right: -11px;
+    top: -10px;
+    bottom: -10px;
+    width: 1px;
+    opacity: .5;
+}
+.formField {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #3f3f44;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #cbcbd2;
+    border-radius: 4px;
 }
