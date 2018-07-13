@@ -1,6 +1,3 @@
-html, body {
-    height: 100%;
-}
 body{
     font-family:'Helvetica Neue',helvetica,arial,sans-serif;
     font-size: 14px;
@@ -22,6 +19,7 @@ h3{
 .coloredBg{
     background-image: linear-gradient(to bottom,#654a86,#534292);
     background-color: #534292;
+    height: 100%;
 }
 .container{
     position: relative;
@@ -40,26 +38,34 @@ h3{
 .container .loginPanel{
     color: #3f3f44;
 }
+/*************************************** LOGIN STYLES START HERE ********************/
 .loginPanel{
     max-width: 430px;
     margin: 0 auto 20px;
     border-radius: 5px;
     background-color: #fff;
-    padding: 20px;
 }
 .loginPanel h3 {
-    margin: -12px 0 28;
+    margin: 0px 0 28;
+    padding-top:4px;
+}
+.loginPanel form {
+    padding: 40px;
 }
 form .form-group {
     position: relative;
     margin-bottom: 20px;
 }
-form input[type="text"], form input[type="email"], form input[type="password"]{
+form input[type="text"], form input[type="email"], form input[type="password"] {
     height: 44px;
     padding-left: 50px;
 }
 form .fieldIcon.iconUsername {
     background: url(../images/icon-user.png);
+    background-repeat: repeat;
+}
+form .fieldIcon.iconPass {
+    background: url(../images/icon-password.png);
     background-repeat: repeat;
 }
 form .fieldIcon {
@@ -92,3 +98,57 @@ form .fieldIcon::after {
     border: 1px solid #cbcbd2;
     border-radius: 4px;
 }
+.formField:focus{
+    border: solid 1px #654a86 !important;
+    box-shadow: 0 0 7px #654a86 !important;
+}
+.button{
+    font-weight: normal;
+    border-radius: 5px;
+    border: none;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.33;
+    width: 100%
+}
+.buttonPupple{
+    color: #fff;
+    background-color: #79589f;
+}
+.errorMsg {
+    background-color: #d64242;
+    border-color: #d64242;
+    color: #FFF;
+}
+.error {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: none;
+}
+.loginPanel a.panelFooter {
+    text-decoration: none;
+}
+.loginPanel .panelFooter {
+    padding: 20px;
+    display: block;
+    font-size: 17px;
+    color: #878797;
+    font-weight: 100;
+}
+.panelFooter {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.loginPanel a.panelFooter>span {
+    color: #79589f;
+    text-decoration: underline;
+}
+/******************************************  LOGIN STYLES END HERE ******************/
