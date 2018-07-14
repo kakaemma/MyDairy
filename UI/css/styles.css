@@ -14,7 +14,6 @@ h3{
 }
 .pageWrapper{
     min-height: 100%;
-    margin-bottom: -170px
 }
 .coloredBg{
     background-image: linear-gradient(top bottom,#654a86,#534292);
@@ -25,7 +24,7 @@ h3{
     position: relative;
     text-align: center;
     height: 100%;
-    padding-top: 60px;
+    padding-top: 10px;
     margin: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -41,7 +40,7 @@ h3{
 /*************************************** LOGIN STYLES START HERE ********************/
 .loginPanel{
     max-width: 430px;
-    margin: 0 auto 20px;
+    margin: 50 auto 20px;
     border-radius: 5px;
     background-color: #fff;
 }
@@ -98,6 +97,7 @@ form .fieldIcon::after {
     border: 1px solid #cbcbd2;
     border-radius: 4px;
 }
+#loginField{width: 80% !important;}
 #regformField{
     padding: 6px 15px;
 }
@@ -166,7 +166,7 @@ form .fieldIcon::after {
 
 }
 .registerHeader{
-    padding: 110px 0 35px;
+    padding: 60px 0 35px;
     position: relative;
     color:#ffff;
 }
@@ -178,8 +178,9 @@ form .fieldIcon::after {
     text-shadow: 0 1px 0 rgba(0,0,0,0.25);
 }
 .registerContent{
-    height: 70%;
-    padding: 20px;
+    height: auto;
+    padding: 10px;
+    position: absolute;
     margin-right: 10px;
     border-radius: 5px;
     text-align: left !important;
@@ -203,19 +204,9 @@ form .fieldIcon::after {
 .smallNotes p:not(full-width){
     max-width: 340px;
 }
-
 p{
     margin: 0px;
     margin-bottom: 30px;
-}
-hr{
-    height: 1px;
-    background-color: rgba(228,228,231,0);
-    background-image: -webkit-linear-gradient(left,
-     rgba(228,228,231,0),
-     rgba(228,228,231,0.9) 10%,
-     rgba(228,228,231,0.9) 90%,
-     rgba(228,228,231,0));
 }
 .registerForm{
     position: relative;
@@ -228,5 +219,7 @@ hr{
     box-shadow: 0 0 0 1px rgba(89,105,128,0.1), 0 3px 20px 0 rgba(89,105,128,0.3), 0 1px 2px 0 rgba(0,0,0,0.05);
 }
 .regfieldHolder{
-    margin:15px 16px 20 15px;;
+    margin-left: 8px;
+    margin-right: 16px;
+    padding-bottom: 10px;
 }
