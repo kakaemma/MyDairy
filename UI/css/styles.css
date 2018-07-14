@@ -152,3 +152,57 @@ form .fieldIcon::after {
     text-decoration: underline;
 }
 /******************************************  LOGIN STYLES END HERE ******************/
+
+/************************** Reigster styles **************************************/
+.register{
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+.registerHeader{
+    padding: 110px 0 35px;
+    position: relative;
+    color:#ffff;
+}
+.registerHeader h2{
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    color:#ffffff;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+.registerContent{
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 3px 20px 0 rgba(0,0,0,0.15);
+    background-color: #F9F9FB;
+    background-image: url(../images/registerbg.png);
+    background-size: 950px 160px;
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+.registerContent .registerPanel{
+    width: calc(100% - 332px);
+    padding: 40px 40px 20px 40px;
+}
+.smallNotes h3 {
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+.smallNotes p:not(.full-width){
+    max-width: 600px;
+}
+p{
+    margin: 0px;
+    margin-bottom: 30px;
+}
+hr{
+    height: 1px;
+    background-color: rgba(228,228,231,0);
+    background-image: -webkit-linear-gradient(left,
+     rgba(228,228,231,0),
+     rgba(228,228,231,0.9) 10%,
+     rgba(228,228,231,0.9) 90%,
+     rgba(228,228,231,0));
+}
