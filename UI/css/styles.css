@@ -128,7 +128,6 @@ form .fieldIcon::after {
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
-    display: none;
 }
 .loginPanel a.panelFooter {
     text-decoration: none;
@@ -172,6 +171,7 @@ form .fieldIcon::after {
     text-shadow: 0 1px 0 rgba(0,0,0,0.25);
 }
 .registerContent{
+    height: 70%;
     padding: 20px;
     margin-right: 10px;
     border-radius: 5px;
@@ -183,15 +183,17 @@ form .fieldIcon::after {
     background-position: top left;
 }
 .registerContent .registerPanel{
-    width: calc(100% - 332px);
-    padding: 40px 40px 20px 40px;
+    padding: 40px 42px 20px 40px;
+}
+.registerContent .registerPanel, .registerContent .regSidebar {
+    float: left;
 }
 .smallNotes h3 {
     line-height: 1.4;
     margin-bottom: 15px;
 }
 .smallNotes p:not(.full-width){
-    max-width: 600px;
+    max-width: 400px;
 }
 p{
     margin: 0px;
@@ -205,4 +207,14 @@ hr{
      rgba(228,228,231,0.9) 10%,
      rgba(228,228,231,0.9) 90%,
      rgba(228,228,231,0));
+}
+.registerForm{
+    position: relative;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    margin-right: -30px;
+    margin-top: -5px;
+    z-index: 10;
+    box-shadow: 0 0 0 1px rgba(89,105,128,0.1), 0 3px 20px 0 rgba(89,105,128,0.3), 0 1px 2px 0 rgba(0,0,0,0.05);
 }
