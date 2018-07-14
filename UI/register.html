@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>My Diary - Register</title>
-        <link rel="stylesheet" type="text/css" href="css/styles" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     
     <body class="coloredBg">
@@ -15,9 +15,36 @@
                         <div class="smallNotes registerPanel">
                             <h3>Free account</h3>
                             <p>Create apps, connect databases and add-on services, and collaborate on your apps, for free.</p>
-                            <hr>
+                            <hr/>
                             <h3>Your thoughts</h3>
-                            <p></p>
+                            <p>Create apps, connect databases and add-on services, and collaborate on your apps, </p>
+                            <hr/>
+                            <h3>Emotions</h3>
+                            <p>Create apps, connect databases and add-on services, and collaborate on your apps, </p>
+
+
+                        </div>
+                        <div class="regSidebar">
+                            <div class="error errorMsg" style="display: none"></div>
+                            <form class="registerForm" action="">
+                                <div class="regfieldHolder">
+                                    <input type="text" name="fname" class="formField" id="regformField" required="required" placeholder="Your first name"/>
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="text" name="lname" class="formField" id="regformField" required placeholder="Your last name" />
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="email" required="required" placeholder="Email address" class="formField" id="regformField"/>
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="password" name="pass" required="required" class="formField" id="regformField" placeholder="Password">
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="password" name="repass" required="required" class="formField" id="regformField" placeholder="Confirm password " />
+                                </div>
+
+
+                            </form>
 
                         </div>
                     </div>
