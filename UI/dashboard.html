@@ -4,15 +4,15 @@
         <title>My Diary - Welcome</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
-    <body>
+    <body style="background-color: #f6f7f8;">
         <div class="navigation" id="header">
-            <div class="mainContainer">
+            <div class="main_container">
                 <div class="navigationbar">
-                    <div class="navigationbarInner">
-                        <div class="mainContainer">
+                    <div class="navigationbar_inner">
+                        <div class="main_container">
                             <a href="" class="logo">My diary</a>
                         </div>
-                        <ul class="listNav">
+                        <ul class="list_nav">
                             <li><a href="">Diary entry</a></li>
                             <li><a href="">Modify entries</a></li>
                             <li><a href="">User Profile</a></li>
@@ -20,6 +20,37 @@
                         </ul>
                     </div>
 
+                </div>
+                <div class="content">
+                    <div class="main_container">
+                        <div class="holder">
+                            <div class="diaries">
+                                You do not have any diary entries yet ?.<br>
+                                <div class="button_area">
+                                    <a href="#addentry" class="button" id="modalbtn" onclick="document.getElementById('addentry').style.display='block'">
+                                        Diary Entry
+                                    </a>
+                                    <hr>
+                                    <h3>My diary entries</h3>
+                                    <div class="main_table">
+                                        <div class="table_row">
+                                            <div class="table_cell">
+                                                <h4>Rally 2018 wining</h4>
+                                            </div>
+                                            <div class="table_cell">
+                                               <h4> <a href="">Add Entry details</a></h4>
+                                            </div>
+                                            <div class="table_cell">
+                                               <h4> Edit</h4> 
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
