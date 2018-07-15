@@ -1,5 +1,5 @@
 ody{
-    font-family:'Helvetica Neue',helvetica,arial,sans-serif;
+    font-family: 'Open Sans', sans-serif, arial, verdana;
     font-size: 14px;
     line-height: 1.42857;
 
@@ -249,7 +249,7 @@ p{
     margin: 0px;
     top: 0px;
 }
-.mainContainer {
+.main_container {
     margin-right: auto;
     margin-left: auto;
 }
@@ -257,7 +257,7 @@ p{
     margin-bottom: 0px;
     overflow: visible;
 }
-.navigationbarInner {
+.navigationbar_inner {
     min-height: 40px;
     padding-right: 0px;
     padding-left: 0px;
@@ -273,7 +273,7 @@ p{
     color: #777777;
     text-shadow: 0 1px 0 #ffffff;
 }
-.navigationbar .listNav {
+.navigationbar .list_nav {
     position: relative;
     left: 0;
     display: block;
@@ -281,13 +281,13 @@ p{
     margin: 0 10px 0 0;
     list-style: none;
 }
-.navigationbar .listNav > li{
+.navigationbar .list_nav > li{
     float: left;
 }
-.navigationbar .listNav > li{
+.navigationbar .list_nav > li{
     border-left: 1px solid #E4E8EA;
 }
-.navigationbar .listNav > li > a {
+.navigationbar .list_nav > li > a {
     float: none;
     padding: 17px 15px;
     color: #74838B;
@@ -296,12 +296,69 @@ p{
     transition: all 250ms ease-out 0s;
     display: block;
 }
-.navigationbar .listNav  > .active > a{
+.navigationbar .list_nav  > .active > a{
     text-decoration: none;
     background-color: #5CA2DF;
 }
-.navigationbar .listNav > li > a:hover{
+.navigationbar .list_nav > li > a:hover{
     text-decoration: none;
     color: #ffffff;
     background-color: #5CA2DF;
+}
+.content {
+    font-size: 13px;
+    top: 0px;
+    width: auto;
+}
+.holder{
+    margin-top:30px;
+    margin-left:30px;
+    width: 100%;
+    float: left;
+    font-size: 17px;
+}
+.button_area {
+    margin-bottom: 25px;
+    height: 40px;
+}
+a.button, button {
+    background-color: #79589f;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+    min-width: 80px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+}
+.button {
+    background-color: #79589f;
+    display: inline-block;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+    margin-top: 15px;
+    padding: 0 20px;
+    text-decoration: none;
+    width:80px
+}
+.main_table{
+    width:80%;
+    height: 100%;
+}
+.table_row{
+    border-top: 1px solid #ddd;
+}
+.table_cell{
+    padding: 8px;
+    padding:8 20px 8px 0px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    float: left;
+
 }
