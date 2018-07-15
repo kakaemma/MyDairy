@@ -1,4 +1,4 @@
-body{
+ody{
     font-family:'Helvetica Neue',helvetica,arial,sans-serif;
     font-size: 14px;
     line-height: 1.42857;
@@ -11,6 +11,9 @@ h1,h2,h3,h4,h5,h6{
 }
 h3{
     font-size: 24px;
+}
+li {
+    line-height: 20px;
 }
 .pageWrapper{
     min-height: 100%;
@@ -40,7 +43,7 @@ h3{
 /*************************************** LOGIN STYLES START HERE ********************/
 .loginPanel{
     max-width: 430px;
-    margin: 50 auto 20px;
+    margin: 50px auto 20px;
     border-radius: 5px;
     background-color: #fff;
 }
@@ -57,7 +60,7 @@ form .form-group {
 }
 form input[type="text"], form input[type="email"], form input[type="password"] {
     height: 44px;
-    padding-left: 50px;
+    padding-left: 34px;
 }
 form .fieldIcon.iconUsername {
     background: url(../images/icon-user.png);
@@ -86,7 +89,7 @@ form .fieldIcon::after {
 }
 .formField {
     display: block;
-    width: 100%;
+    width: 88%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -97,7 +100,7 @@ form .fieldIcon::after {
     border: 1px solid #cbcbd2;
     border-radius: 4px;
 }
-#loginField{width: 80% !important;}
+#loginField{width: 60% !important;}
 #regformField{
     padding: 6px 15px;
 }
@@ -226,4 +229,79 @@ p{
     margin-left: 8px;
     margin-right: 16px;
     padding-bottom: 10px;
+}
+/******************* Register styles end here ******************************************/
+
+/************ Main styles **************/
+#header{
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    height: 55px;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+}
+.navigation{
+    width: 100%;
+    background: #FFFFFF;
+    margin: 0px;
+    top: 0px;
+}
+.mainContainer {
+    margin-right: auto;
+    margin-left: auto;
+}
+.navigationbar {
+    margin-bottom: 0px;
+    overflow: visible;
+}
+.navigationbarInner {
+    min-height: 40px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #ffffff;
+}
+.navigationbar .logo{
+    display: block;
+    float: left;
+    padding: 7px 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #777777;
+    text-shadow: 0 1px 0 #ffffff;
+}
+.navigationbar .listNav {
+    position: relative;
+    left: 0;
+    display: block;
+    float: right;
+    margin: 0 10px 0 0;
+    list-style: none;
+}
+.navigationbar .listNav > li{
+    float: left;
+}
+.navigationbar .listNav > li{
+    border-left: 1px solid #E4E8EA;
+}
+.navigationbar .listNav > li > a {
+    float: none;
+    padding: 17px 15px;
+    color: #74838B;
+    text-decoration: none;
+    font-family: 'DroidSansRegular';
+    transition: all 250ms ease-out 0s;
+    display: block;
+}
+.navigationbar .listNav  > .active > a{
+    text-decoration: none;
+    background-color: #5CA2DF;
+}
+.navigationbar .listNav > li > a:hover{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #5CA2DF;
 }
