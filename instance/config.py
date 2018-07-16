@@ -1,12 +1,10 @@
-#instance/config.py
-
-import os
+# instance/config.py
 
 
 class MainConfiguration(object):
     """ Parent configuration class"""
     DEBUG = False
-    CSRF = True
+    CSRF_ENABLED = True
 
 
 class DevelopmentEnvironment(MainConfiguration):
