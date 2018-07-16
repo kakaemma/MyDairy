@@ -25,6 +25,7 @@ def register(version):
         first_name = request.json['f_name']
         last_name = request.json['l_name']
         email = request.json['email']
+        password = request.json['password']
     except KeyError:
         invalid_keys()
 
