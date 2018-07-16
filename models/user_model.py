@@ -5,7 +5,7 @@ class UserModel(object):
     """ This class handles all model operations to the User"""
     user = []
 
-    def __init__(self, first_name, last_name, email, password ):
+    def __init__(self, first_name, last_name, email, password):
         """
         This constructor initialises all the parameters
         :param first_name: 
@@ -29,3 +29,8 @@ class UserModel(object):
         UserModel.user.append(self)
         return self.user_id
 
+    @staticmethod
+    def check_if_email_exists(email):
+        for this_user in UserModel.user:
+            if this_user.email == email:
+                return this_user.email
