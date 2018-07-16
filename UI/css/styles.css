@@ -439,5 +439,19 @@ a.button, button {
     border-color: #ddd;
 }
 .panel_body {
-    padding: 60px 4% 5% 7%;
+    padding: 24px 4% 5% 7%;
+}
+.profile_pic{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 15%;
+    margin-top: 3%;
+}
+.panel_body .lower_content{
+    margin-left: 10px ;
+    margin-right: 15%;
+    margin-top: 3%;
+    text-align: center
 }
