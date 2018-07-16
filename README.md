@@ -1,5 +1,4 @@
 [![Emmanuel Kakaire](https://img.shields.io/badge/Emmanuel%20Kakaire-MyDiary-green.svg)]()
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![license](https://img.shields.io/badge/HTML-HTML5-orange.svg)]()
 
 # MyDairy
