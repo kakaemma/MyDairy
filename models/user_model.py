@@ -34,3 +34,11 @@ class UserModel(object):
         for this_user in UserModel.user:
             if this_user.email == email:
                 return this_user.email
+
+    @staticmethod
+    def check_if_user_is_valid(email, password):
+        for this_user in UserModel.user:
+            if this_user.email == email and\
+                            this_user.password == password:
+                return this_user.user_id
+            
