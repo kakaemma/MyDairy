@@ -1,4 +1,21 @@
-import unittest
-from flask import json
-from api.diary import app
-from instance.config import application_config
+from tests.test_base import BaseClass
+
+class TestAuthentication(BaseClass):
+
+
+    def test_index_rout(self):
+        """ Test response for title in the index page """
+        response = self.client.get('/')
+        self.assertIn('Welcome to My Diary', response.data.decode())
+
+    def test_registration_with_no_values(self):
+        """ Test registration with missing values"""
+        response = self.client.post('/api/v1/register', data=self.empty_reg)
+        self.assertIn('Missing values', response.data.decode())
+        self.assertEqual(response.status_code, 406)
+
+
+
+
+
+
