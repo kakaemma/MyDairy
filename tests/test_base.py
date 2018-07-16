@@ -14,3 +14,9 @@ class BaseClass(unittest.TestCase):
             'email': '',
             'password': ''
         })
+        self.invalid_email = json.dumps({
+            'f_name': 'Emmanuel',
+            'l_name': 'Kakaire',
+            'email': 'kakaemma',
+            'password': '123456'
+        })
