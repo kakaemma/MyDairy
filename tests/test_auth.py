@@ -1,7 +1,7 @@
 from tests.test_base import BaseClass
 
-class TestAuthentication(BaseClass):
 
+class TestAuthentication(BaseClass):
 
     def test_index_rout(self):
         """ Test response for title in the index page """
@@ -20,9 +20,3 @@ class TestAuthentication(BaseClass):
                                     data=self.invalid_email)
         self.assertIn('Invalid email address', response.data.decode())
         self.assertEqual(response.status_code, 400)
-
-
-
-
-
-
