@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Diary - Register</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    </head>
+    
+    <body class="coloredBg">
+        <div class="pageWrapper">
+            <div class="container">
+                <div class="register">
+                    <div class="registerHeader">
+                        <h2>Sign up and express your thoughts</h2>
+                    </div>
+                    <div class="registerContent">
+                        <div class="smallNotes registerPanel">
+                            <h3>* Free account</h3>
+                            <p>Create a free account with My diary and have access to your emmotions and thoughts on the go.</p>
+                            <hr/>
+                            <h3>* Instant notifications</h3>
+                            <p>Get notifications prompting you to add entries to your diary on a daily basis</p>
+                            <hr/>
+                            <h3>Already have an account ?</h3>
+                            <p><a href="../index.html"> Sign in to your account</a> </p>
+                        </div>
+                        <div class="regSidebar">
+                            <div class="error errorMsg" style="display: none"></div>
+                            <form class="registerForm" action="">
+                                <div class="regfieldHolder">
+                                    <input type="text" name="fname" class="formField" id="regformField" required="required" placeholder="Your first name"/>
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="text" name="lname" class="formField" id="regformField" required placeholder="Your last name" />
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="email" required="required" placeholder="Email address" class="formField" id="regformField"/>
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="password" name="pass" required="required" class="formField" id="regformField" placeholder="Password">
+                                </div>
+                                <div class="regfieldHolder">
+                                    <input type="password" name="repass" required="required" class="formField" id="regformField" placeholder="Confirm password " />
+                                </div>
+
+                                <button class="button buttonPupple" id="regbtn" type="submit" value="Sign in">Sign up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
