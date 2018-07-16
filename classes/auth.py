@@ -9,4 +9,13 @@ class Authentication(object):
 
     @staticmethod
     def registration(first_name, last_name, email, password):
+        """
+        This method handles user registration
+        
+        :param first_name: 
+        :param last_name: 
+        :param email: 
+        :param password: 
+        :return: 
+        """
         pass
