@@ -37,11 +37,11 @@ class TestAuthentication(BaseClass):
     #     self.assertIn('Email already exists', response.data.decode())
     #     self.assertEqual(response.status_code, 409)
 
-    def test_successful_registration(self):
-        """ Should return registration successful and status code 201"""
-        response = self.client.post('/api/v1/register',
-                                    data=self.new_user)
-        self.assertIn('Registration successful',
-                      response.data.decode())
-        self.assertEqual(response.status_code, 201)
+    # def test_successful_registration(self):
+    #     """ Should return registration successful and status code 201"""
+    #     response = self.client.post('/api/v1/register',
+    #                                 data=self.new_user)
+    #     self.assertIn('Registration successful',
+    #                   response.data.decode())
+    #     self.assertEqual(response.status_code, 201)
 
