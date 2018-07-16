@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Diary - Entry details</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="js/modal.js" type="javascript"></script>
+    </head>
+    <body style="background-color: #f6f7f8;">
+        <div class="navigation" id="header">
+            <div class="main_container">
+                <div class="navigationbar">
+                    <div class="navigationbar_inner">
+                        <div class="main_container">
+                            <a href="" class="logo">My diary</a>
+                        </div>
+                        <ul class="list_nav">
+                            <li><a href="dashboard.html">Diary entry</a></li>
+                            <li><a href="profile.html">User Profile</a></li>
+                            <li><a href="index.html">Sign out</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="content">
+                    <div class="main_container">
+                        <div class="holder">
+                            <div class="diaries">
+                                    <h3>Training on rough surfaces and tyre change</h3>
+                                <div class="button_area">
+                                    <a href="#addentry" class="button button_dash" id="modalbtn" onclick="document.getElementById('myModal').style.display='block'">
+                                        Edit details
+                                    </a>
+                                </div>
+                                <hr>
+                                <h3>Entry details</h3>
+                                <div class="main_table">
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            <h4>Training on rough surfaces and tyre change</h4>
+                                        </div>
+                                        <div class="table_cell">
+                                            <h4> <a href="">Edit Entry</a></h4> 
+                                        </div>
+                                        <div class="table_cell">
+                                            <h4> <a href="">Delete entry</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal_content">
+                <div class="modal_header">
+                    <span class="close"><a href="" style="text-decoration: none; color: #ffffff">&times;</a></span>
+                    <h2>Modify Entry Details</h2>
+                </div>
+                <div class="modal_body" style="padding-top: 20px;">
+                    <form action="" name="addentry" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="newdiary" class="formField" placeholder="Add details to diary entry" />
+                        </div>
+                        <button class="button button_dash" name="entry_btn">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>
