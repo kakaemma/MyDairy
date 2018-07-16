@@ -424,3 +424,20 @@ a.button, button {
 .modal_body input[type="text"], .modal_body .button{
     font-size: 20px;
 }
+.panel{
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    width:50%;
+    margin-left:20%;
+    margin-right:25%;
+}
+.user_panel{
+    border-color: #ddd;
+}
+.panel_body {
+    padding: 60px 4% 5% 7%;
+}
