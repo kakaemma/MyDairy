@@ -33,7 +33,6 @@ def register(version):
     except KeyError:
         invalid_keys()
 
-
 def invalid_keys():
     """
     Handles invalid keys
