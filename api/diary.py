@@ -11,3 +11,29 @@ def index():
     :return: 
     """
     return render_template('index.html')
+
+
+@app.route('/api<version>/register')
+def register(version):
+    """
+    This end point registers a user
+    :param version: 
+    :return: 
+    """
+    request.get_json(force=True)
+    try:
+        first_name = request.json['f_name']
+        last_name = request.json['l_name']
+        email = request.json['email']
+    except KeyError:
+        invalid_keys()
+
+
+def invalid_keys():
+    """
+    Handles invalid keys
+    :return: 
+    """
+    response = jsonify({'Error': 'Invalid keys'})
+    response.status_code = 400
+    return response
