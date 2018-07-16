@@ -1,4 +1,5 @@
 from flask import jsonify,request,json,render_template
+from classes.auth import Authentication
 from api import create_app
 
 
@@ -13,7 +14,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api<version>/register')
+@app.route('/api/<version>/register', methods=['POST'])
 def register(version):
     """
     This end point registers a user
@@ -26,6 +27,9 @@ def register(version):
         last_name = request.json['l_name']
         email = request.json['email']
         password = request.json['password']
+        response = Authentication.registration(first_name,
+                                               last_name, email, password)
+        return response
     except KeyError:
         invalid_keys()
 
