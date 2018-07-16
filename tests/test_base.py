@@ -32,3 +32,9 @@ class BaseClass(unittest.TestCase):
             'email': 'kakaemma@gmail.com',
             'password': '1234567'
         })
+        self.new_user = json.dumps({
+            'f_name': 'Emmanuel',
+            'l_name': 'Kakaire',
+            'email': 'kakaemma1@gmail.com',
+            'password': '1234567'
+        })
