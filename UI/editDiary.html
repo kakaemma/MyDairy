@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Diary - Update entry</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="js/modal.js" type="javascript"></script>
+    </head>
+    <body style="background-color: #f6f7f8;">
+        <div class="navigation" id="header">
+            <div class="main_container">
+                <div class="navigationbar">
+                    <div class="navigationbar_inner">
+                        <div class="main_container">
+                            <a href="" class="logo">My diary</a>
+                        </div>
+                        <ul class="list_nav">
+                            <li><a href="dashboard.html">Diary entry</a></li>
+                            <li><a href="profile.html">User Profile</a></li>
+                            <li><a href="index.html">Sign out</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="content">
+                    <div class="main_container">
+                        <div class="holder">
+                            <div class="diaries">
+                                    Rally 2018 performance from January<br>
+                                <div class="button_area">
+                                    <a href="#addentry" class="button button_dash" id="modalbtn" onclick="document.getElementById('myModal').style.display='block'">
+                                        Edit Entry
+                                    </a>
+                                </div>
+                                <hr>
+                                <h3>My diary entries</h3>
+                                <div class="main_table">
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            <h4><a href="details.html">Rally 2018 performance from January</a></h4>
+                                        </div>
+                                         <div class="table_cell">
+                                            <h4> <a href="">Edit Entry</a></h4> 
+                                        </div>
+                                        <div class="table_cell">
+                                            <h4> <a href="">Delete entry</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            <h4><a href="details.html">Andela cohort 10 2018 bootcamp week</a></h4>
+                                        </div>
+                                        <div class="table_cell">
+                                            <h4> <a href="">Edit Entry</a></h4> 
+                                        </div>
+                                        <div class="table_cell">
+                                            <h4> <a href="">Delete entry</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                            <div class="table_cell">
+                                                <h4>Daily experiences in the month of July</h4>
+                                            </div>
+                                            <div class="table_cell">
+                                                <h4> <a href="">Edit Entry</a></h4> 
+                                            </div>
+                                            <div class="table_cell">
+                                                <h4> <a href="">Delete entry</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal_content">
+                <div class="modal_header">
+                    <span class="close"><a href="" style="text-decoration: none; color: #ffffff">&times;</a></span>
+                    <h2>Update Entry</h2>
+                </div>
+                <div class="modal_body" style="padding-top: 20px;">
+                    <form action="" name="addentry" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="newdiary" class="formField" placeholder="New diary entry " />
+                        </div>
+                        <button class="button button_dash" name="entry_btn">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>
