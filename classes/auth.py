@@ -26,7 +26,7 @@ class Authentication(object):
             return response
 
         if not validate_email(email):
-            response = jsonify({'Conflict': 'Invalid email address'})
+            response = jsonify({'Error': 'Invalid email address'})
             response.status_code = 400
             return response
 

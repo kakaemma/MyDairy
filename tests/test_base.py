@@ -52,9 +52,9 @@ class BaseClass(unittest.TestCase):
             'email':'kaka@gmail.com',
             'password':'xxddcc1'
         })
-        self.bad_mail = json.dumps({
-            'email':'emma',
-            'password':'1234567'
+        self.invalid_login_email = json.dumps({
+            'email': 'kakaemma',
+            'password': '1234567'
         })
 
         self.login_user = json.dumps({
