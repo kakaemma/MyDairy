@@ -55,12 +55,6 @@ class TestAuthentication(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 422)
 
-    # def test_login_with_invalid_email(self):
-    #
-    #     response = self.client.post('/api/v1/login', data=self.invalid_login_email)
-    #     self.assertIn('Invalid login email', response.data.decode())
-    #     self.assertEqual(response.status_code, 400)
-
     def test_login_with_invalid_credentials(self):
         self.client.post('/api/v1/register',
                                     data=self.user)
