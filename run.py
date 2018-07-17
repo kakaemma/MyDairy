@@ -1,3 +1,3 @@
-from api.bucket import app
+from api.diary import app
 if __name__ == '__main__':
     app.run(debug=True)
