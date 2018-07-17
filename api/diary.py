@@ -33,6 +33,7 @@ def register(version):
     except KeyError:
         invalid_keys()
 
+
 @app.route('/api/<version>/login', methods=['POST'])
 def login(version):
     try:
@@ -44,6 +45,18 @@ def login(version):
 
     except KeyError:
         invalid_keys()
+
+
+@app.route('/api/<version>/diary', methods=['POST'])
+def add_diary(version):
+    try:
+        request.get_json(force=True)
+        diary_name = request.json['name']
+        # response = Diary.new_diary(name)
+        # return response
+    except KeyError:
+        invalid_keys()
+
 
 def invalid_keys():
     """
