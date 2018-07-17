@@ -45,5 +45,13 @@ class TestAuthentication(BaseClass):
         self.assertIn('Email already exists', response.data.decode())
         self.assertEqual(response.status_code, 409)
 
-
+    def test_login_without_values(self):
+        """ Should return missing values"""
+        self.client.post('/api/v1/register',
+                                    data=self.user)
+        response = self.client.post('/api/v1/login',
+                                    data=self.empty_login)
+        self.assertIn('Missing login value(s)',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 422)
 
