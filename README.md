@@ -3,7 +3,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/kakaemma/MyDairy/badge.svg?branch=dev)](https://coveralls.io/github/kakaemma/MyDairy?branch=dev)
 [![Build Status](https://travis-ci.org/kakaemma/MyDairy.svg?branch=dev)](https://travis-ci.org/kakaemma/MyDairy)
 [![Code Style](https://img.shields.io/badge/code%20style-pep8-blue.svg)]()
-https://img.shields.io/badge/code%20style-pep8-blue.svg
 
 # MyDairy
 MyDiary is an online journal where users can pen down their thoughts and feelings.
