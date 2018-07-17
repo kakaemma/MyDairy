@@ -32,6 +32,12 @@ class BaseClass(unittest.TestCase):
             'email': 'kakaemma@gmail.com',
             'password': '1234567'
         })
+        self.user_two = json.dumps({
+            'f_name': 'Emmanuel',
+            'l_name': 'Kakaire',
+            'email': 'ekaka@gmail.com',
+            'password': '1234567'
+        })
         self.new_user = json.dumps({
             'f_name': 'Emmanuel',
             'l_name': 'Kakaire',
@@ -42,14 +48,15 @@ class BaseClass(unittest.TestCase):
             'email':'',
             'password':''
         })
-        self.invalid_login_email = json.dumps({
-            'email':'kaka',
-            'password':'1234567'
-        })
         self.invalid_user = json.dumps({
             'email':'kaka@gmail.com',
             'password':'xxddcc1'
         })
+        self.bad_mail = json.dumps({
+            'email':'emma',
+            'password':'1234567'
+        })
+
         self.login_user = json.dumps({
             'email': 'kakaemma@gmail.com',
             'password': '1234567'
