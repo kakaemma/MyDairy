@@ -54,4 +54,8 @@ pip install requirements.txt
 ```
 $ python run.py
 ```
+### To see the application running:
+Install postman
 
+```http://localhost:5000
+```
