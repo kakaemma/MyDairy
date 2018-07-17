@@ -24,4 +24,3 @@ Endpoint | Description| Access Rights
 POST /api/v1/register | Registers a user | All
 POST /api/v1/login |Logs a user in | All
 POST /api/v1/diary |Adds a diary entry | logged in user
-
