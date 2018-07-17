@@ -39,7 +39,7 @@ git clone https://github.com/kakaemma/MyDairy.
 cd MyDiary
 ```
 ### Create a virtualenv, and activate it:
-I am assuming yo are using a windows machine
+I am assuming you are using a windows machine
 
 ```
 virtualenv env
