@@ -27,21 +27,23 @@ class TestAuthentication(BaseClass):
                                     data=self.short_password)
         self.assertIn('Password too short', response.data.decode())
         self.assertEqual(response.status_code, 422)
-    #
-    # def test_registration_with_existing_email(self):
-    #     """ Should return conflict email already exists"""
-    #     self.client.post('/api/v1/register',
-    #                      data=self.user)
-    #     response = self.client.post('/api/v1/register',
-    #                                 data=self.user)
-    #     self.assertIn('Email already exists', response.data.decode())
-    #     self.assertEqual(response.status_code, 409)
 
-    # def test_successful_registration(self):
-    #     """ Should return registration successful and status code 201"""
-    #     response = self.client.post('/api/v1/register',
-    #                                 data=self.new_user)
-    #     self.assertIn('Registration successful',
-    #                   response.data.decode())
-    #     self.assertEqual(response.status_code, 201)
+    def test_successful_registration(self):
+        """ Should return registration successful and status code 201"""
+        response = self.client.post('/api/v1/register',
+                                    data=self.new_user)
+        self.assertIn('User successfully registered',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 201)
+
+    def test_registration_with_existing_email(self):
+        """ Should return conflict email already exists"""
+        self.client.post('/api/v1/register',
+                         data=self.user)
+        response = self.client.post('/api/v1/register',
+                                    data=self.user)
+        self.assertIn('Email already exists', response.data.decode())
+        self.assertEqual(response.status_code, 409)
+
+
 
