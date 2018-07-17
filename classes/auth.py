@@ -46,3 +46,30 @@ class Authentication(object):
             response = jsonify({'Info': 'User successfully registered '})
             response.status_code = 201
             return response
+
+    @staticmethod
+    def login(email, password):
+        if not email or not password:
+            response = jsonify({'Error': ' Missing login value(s)'})
+            response.status_code = 422
+            return response
+
+        if not validate_email(email):
+            response = jsonify({'Error': 'Invalid login email'})
+            response.status_code = 400
+            return
+
+        id_for_user = UserModel.\
+            check_if_user_is_valid(email, password)
+        if not id_for_user:
+            response = jsonify({'Error': 'Invalid login credentials'})
+            response.status_code = 400
+            return response
+
+        response = jsonify({
+            'info': 'Login successful',
+            'token': id_for_user
+        })
+        response.status_code = 200
+        return response
+
