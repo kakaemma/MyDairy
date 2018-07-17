@@ -27,7 +27,7 @@ POST /api/v1/login |Logs a user in | All
 POST /api/v1/diary |Adds a diary entry | logged in user
 
 
-'''
+
 ### Requirements
 `Python 3+, python-pip, virtualenv`
 
