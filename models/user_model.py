@@ -18,8 +18,6 @@ class UserModel(object):
         self.last_name = last_name
         self.email = email
         self.password = password
-        self.date_created = datetime.datetime.utcnow()
-        self.date_modified = None
 
     def create_user(self):
         """
