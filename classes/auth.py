@@ -1,5 +1,6 @@
 from flask import jsonify
 from validate_email import validate_email
+from models.user_model import UserModel
 
 class Authentication(object):
     """
@@ -32,4 +33,16 @@ class Authentication(object):
         if len(password) < 5:
             response = jsonify({'Error': 'Password too short'})
             response.status_code = 422
+            return response
+
+        if email == UserModel.check_if_email_exists(email):
+            response = jsonify({'Conflict': 'Email already exists'})
+            response.status_code = 409
+            return response
+
+        new_user = UserModel(first_name, last_name, email, password)
+        user_id = new_user.create_user()
+        if user_id:
+            response = jsonify({'Info': 'User successfully registered '})
+            response.status_code = 201
             return response
