@@ -73,3 +73,10 @@ class TestAuthentication(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
 
+    def test_successful_login(self):
+        self.client.post('/api/v1/register',
+                                    data=self.user)
+        response = self.client.post('/api/v1/login',
+                                    data=self.login_user)
+        self.assertIn('Login successful', response.data.decode())
+        self.assertEqual(response.status_code, 200)
