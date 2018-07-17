@@ -15,4 +15,12 @@ A user can;
 * Add description to the diary
 * View the diary items
 
+### API resources
+
+These are the endpoints available in My Diary API
+
+Endpoint | Description| Access Rights
+------------ | ------------- | ------------- 
+POST /api/v1/register | Registers a user | All
+POST /api/v1/login |Logs a user in | All
 
