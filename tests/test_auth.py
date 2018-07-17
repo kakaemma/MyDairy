@@ -64,3 +64,12 @@ class TestAuthentication(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
 
+    def test_login_with_invalid_credentials(self):
+        self.client.post('/api/v1/register',
+                                    data=self.user)
+        response = self.client.post('/api/v1/login',
+                                    data=self.invalid_user)
+        self.assertIn('Invalid login credentials',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
