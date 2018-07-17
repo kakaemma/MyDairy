@@ -25,3 +25,31 @@ Endpoint | Description| Access Rights
 POST /api/v1/register | Registers a user | All
 POST /api/v1/login |Logs a user in | All
 POST /api/v1/diary |Adds a diary entry | logged in user
+
+
+'''
+### Requirements
+'''
+
+python 3+, python-pip, virtual-env
+
+'''
+### Installation
+Clone the repository
+
+'''
+git clone https://github.com/kakaemma/MyDairy.
+cd MyDiary
+'''
+### Create a virtualenv, and activate it:
+
+'''
+virtualenv env
+cd env/Scripts/activate
+'''
+
+### Then install all dependecies required to run the application
+
+'''
+pip install requirements.txt
+'''
