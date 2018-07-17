@@ -3,7 +3,7 @@ from tests.test_base import BaseClass
 
 class TestAuthentication(BaseClass):
 
-    def test_index_rout(self):
+    def test_index_route(self):
         """ Test response for title in the index page """
         response = self.client.get('/')
         self.assertIn('Welcome to My Diary', response.data.decode())
@@ -46,7 +46,7 @@ class TestAuthentication(BaseClass):
         self.assertEqual(response.status_code, 409)
 
     def test_login_without_values(self):
-        """ Should return missing values"""
+        """ Should return missing login values"""
         self.client.post('/api/v1/register',
                                     data=self.user)
         response = self.client.post('/api/v1/login',
@@ -56,6 +56,7 @@ class TestAuthentication(BaseClass):
         self.assertEqual(response.status_code, 422)
 
     def test_login_with_invalid_credentials(self):
+        """ Should return invalid login credentials"""
         self.client.post('/api/v1/register',
                                     data=self.user)
         response = self.client.post('/api/v1/login',
@@ -65,16 +66,10 @@ class TestAuthentication(BaseClass):
         self.assertEqual(response.status_code, 400)
 
     def test_successful_login(self):
+        """ Should return login successful"""
         self.client.post('/api/v1/register',
                                     data=self.user)
         response = self.client.post('/api/v1/login',
                                     data=self.login_user)
         self.assertIn('Login successful', response.data.decode())
         self.assertEqual(response.status_code, 200)
-
-
-
-
-
-
-
