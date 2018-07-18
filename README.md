@@ -20,7 +20,7 @@ A user can;
 These are the endpoints available in My Diary API
 
 HTTP Method | Endpoint | Description| Public Access
------------- | ------------- | ------------- 
+------------ | ------------- | ------------- | ------------- 
 POST| /api/v1/register | Registers a user | True
 POST| /api/v1/login |Logs a user in | True
 POST| /api/v1/diary |Adds a diary entry | False
