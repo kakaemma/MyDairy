@@ -2,6 +2,7 @@ import unittest
 from flask import json
 from api.diary import app
 from instance.config import application_config
+from models.diary_model import DiaryModel
 
 class BaseClass(unittest.TestCase):
     def setUp(self):
@@ -68,3 +69,10 @@ class BaseClass(unittest.TestCase):
         self.new_diary = json.dumps({
             'name':'Uganda rally 2018'
         })
+        self.new_diary_2 = json.dumps({
+            'name':'Uganda rally 2018'
+        })
+
+    def tearDown(self):
+        DiaryModel.diary = []
+
