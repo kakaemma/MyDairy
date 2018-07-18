@@ -103,13 +103,22 @@ def diary_description(version, diary_id):
 
 
 @app.route('/api/<version>/diary/<int:diary_id>/\
-item/<int:item_id', methods=['POST'])
-def diary_description(version, diary_id, item_id):
+item/<int:item_id>', methods=['PUT'])
+def edit_description(version, diary_id, item_id):
     try:
         request.get_json(force=True)
         description = request.json['desc']
         response = DiaryItem.edit_diary_description(\
             diary_id, item_id, description)
+        return response
+
+    except KeyError:
+        invalid_keys()
+
+@app.route('/api/<version>/diary/<int:diary_id>/item', methods=['GET'])
+def get_description_fo_diary(version, diary_id):
+    try:
+        response = DiaryItem.get_diary_descriptions(diary_id)
         return response
 
     except KeyError:
