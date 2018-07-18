@@ -74,6 +74,16 @@ def get_single_diary(version, diary_id):
     except KeyError:
         invalid_keys()
 
+@app.route('/api/<version>/diary/<int:diary_id>', methods=['PUT'])
+def modify_diary(version, diary_id):
+    try:
+        request.get_json(force=True)
+        name = request.json['name']
+        response = Diary.edit_diary(diary_id, name)
+        return response
+    except KeyError:
+        invalid_keys()
+
 
 def invalid_keys():
     """
