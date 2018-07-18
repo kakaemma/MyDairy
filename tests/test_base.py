@@ -61,3 +61,10 @@ class BaseClass(unittest.TestCase):
             'email': 'kakaemma@gmail.com',
             'password': '1234567'
         })
+
+        self.empty_diary = json.dumps({
+            'name':''
+        })
+        self.new_diary = json.dumps({
+            'name':'Uganda rally 2018'
+        })
