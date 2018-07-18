@@ -77,10 +77,36 @@ class TestDiary(BaseClass):
     def test_modify_diary_with_no_id(self):
         self.client.post('/api/v1/diary', data=self.new_diary_2)
         response = self.client.put('/api/v1/diary/0', data=self.new_diary_2)
-        self.assertIn('Missing id', response.data.decode())
+        self.assertIn('Missing diary id', response.data.decode())
         self.assertEqual(response.status_code, 400)
 
-    
+    def test_modify_diary_with_wrong_id(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.put('/api/v1/diary/2', data=self.new_diary_2)
+        self.assertIn('No diary matches the supplied id', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_modify_diary_with_same_name(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.put('/api/v1/diary/1', data=self.new_diary_2)
+        self.assertIn('Can not edit diary with', response.data.decode())
+        self.assertEqual(response.status_code, 409)
+
+    def test_modify_diary_successfully(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.put('/api/v1/diary/1', data=self.edit_diary)
+        self.assertIn('Diary successfully modified', response.data.decode())
+        self.assertEqual(response.status_code, 200)
+
+
+
+
+
+
+
+
+
+
 
 
 
