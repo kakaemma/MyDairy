@@ -1,5 +1,6 @@
 from flask import jsonify,request,json,render_template
 from classes.auth import Authentication
+from classes.diary import Diary
 from api import create_app
 
 
@@ -52,8 +53,8 @@ def add_diary(version):
     try:
         request.get_json(force=True)
         diary_name = request.json['name']
-        # response = Diary.new_diary(name)
-        # return response
+        response = Diary.new_diary(diary_name)
+        return response
     except KeyError:
         invalid_keys()
 
