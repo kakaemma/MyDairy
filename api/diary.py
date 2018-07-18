@@ -1,6 +1,7 @@
 from flask import jsonify,request,json,render_template
 from classes.auth import Authentication
 from classes.diary import Diary
+from classes.item import DiaryItem
 from api import create_app
 
 
@@ -80,6 +81,16 @@ def modify_diary(version, diary_id):
         request.get_json(force=True)
         name = request.json['name']
         response = Diary.edit_diary(diary_id, name)
+        return response
+    except KeyError:
+        invalid_keys()
+
+@app.route('/api/<version>/diary/<int:diary_id>/item')
+def diary_description(version, diary_id):
+    try:
+        request.get_json(force=True)
+        description = request.json['desc']
+        response = DiaryItem.add_diary_description(diary_id, description)
         return response
     except KeyError:
         invalid_keys()
