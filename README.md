@@ -19,13 +19,14 @@ A user can;
 
 These are the endpoints available in My Diary API
 
-Endpoint | Description| Access Rights
+HTTP Method | Endpoint | Description| Public Access
 ------------ | ------------- | ------------- 
-POST /api/v1/register | Registers a user | All
-POST /api/v1/login |Logs a user in | All
-POST /api/v1/diary |Adds a diary entry | logged in user
-GET /api/v1/diary |Retrieves all diary entries | logged in user
-GET /api/v1/diary/<diary_id> |Retrieves a single diary entry | logged in user
+POST| /api/v1/register | Registers a user | True
+POST| /api/v1/login |Logs a user in | True
+POST| /api/v1/diary |Adds a diary entry | False
+GET| /api/v1/diary |Retrieves all diary entries | False
+GET| /api/v1/diary/<diary_id> |Retrieves a single diary entry | False
+PUT| /api/v1/diary/<diary_id> |Modifies diary entry | False
 
 
 
