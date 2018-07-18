@@ -25,6 +25,7 @@ POST /api/v1/register | Registers a user | All
 POST /api/v1/login |Logs a user in | All
 POST /api/v1/diary |Adds a diary entry | logged in user
 GET /api/v1/diary |Retrieves all diary entries | logged in user
+GET /api/v1/diary/1 |Retrieves a single diary entry | logged in user
 
 
 
