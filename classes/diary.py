@@ -68,8 +68,6 @@ class Diary(object):
             if not single_diary:
                 response = jsonify({'Info': 'Diary does not exist'})
                 response.status_code = 404
-                print(single_diary)
-
                 return response
 
             this_diary = DiaryModel.get_diary_by_id(diary_id)
@@ -84,7 +82,7 @@ class Diary(object):
 
 
 
-        response = jsonify({'Info': 'No diary entries added'})
+        response = jsonify({'Info': 'Attempting to retrieve on empty diary'})
         response.status_code = 400
         return response
 
