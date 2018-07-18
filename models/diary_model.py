@@ -22,14 +22,15 @@ class DiaryModel(object):
         DiaryModel.diary.append(self)
         return self.diary_id
 
+
     @staticmethod
     def check_for_diaries():
         """ This checks whether there are any diary entries"""
         if len(DiaryModel.diary) >=1:
-            return len(DiaryModel.diary)
+            return (len(DiaryModel.diary))
 
-    @staticmethod
-    def get_diaries(self):
+    @classmethod
+    def get_diaries(cls):
         all_diaries = []
         for this_diary in DiaryModel.diary:
             all_diaries.append({
@@ -40,3 +41,26 @@ class DiaryModel(object):
 
             })
         return all_diaries
+
+    @staticmethod
+    def check_diary_by_id(search_id):
+        for this_diary in DiaryModel.diary:
+            if this_diary.diary_id == search_id:
+                print(this_diary.diary_id)
+                return this_diary.diary_id
+
+    @staticmethod
+    def get_diary_by_id(search_id):
+        response = []
+        for this_diary in DiaryModel.diary:
+            if this_diary.diary_id == search_id:
+                response.append({
+                    'id': this_diary.diary_id,
+                    'name': this_diary.name,
+                    'Date created': this_diary.date_created,
+                    'Date Modified': this_diary.date_modified
+                })
+                return response
+
+
+
