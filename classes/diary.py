@@ -17,6 +17,12 @@ class Diary(object):
             response.status_code = 400
             return response
 
+        check_name = DiaryModel.check_name(name)
+        if check_name:
+            response = jsonify({'Conflict': 'Diary name already exists'})
+            response.status_code = 409
+            return response
+
         new_diary = DiaryModel(name)
         added_diary = new_diary.create_diary()
         if added_diary:
