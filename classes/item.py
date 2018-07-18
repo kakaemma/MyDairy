@@ -1,5 +1,6 @@
 from flask import jsonify
 from models.diary_model import DiaryModel
+from models.item_model import ItemModel
 
 
 class DiaryItem(object):
@@ -36,5 +37,13 @@ class DiaryItem(object):
                  on non existing entry'})
             response.status_code = 400
             return response
+
+        add_description = ItemModel(diary_id, description)
+        is_description_added = add_description.create_description()
+        if is_description_added:
+            response =jsonify({'info': 'Diary description added'})
+            response.status_code = 201
+            return response
+
 
 
