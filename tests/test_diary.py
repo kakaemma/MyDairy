@@ -28,6 +28,14 @@ class TestDiary(BaseClass):
         self.assertIn('No diary entries available', response.data.decode())
         self.assertEqual(response.status_code, 404)
 
+    def test_get_diaries_successfully(self):
+        """ Should return my diary entries"""
+        self.client.post('/api/v1/diary', data=self.new_diary)
+        response = self.client.get('/api/v1/diary')
+        self.assertIn('My Diary entries', response.data.decode())
+        self.assertEqual(response.status_code, 200)
+
+
     def test_get_single_diary_on_empty_diary(self):
         """ Should return No diary entries added"""
         response = self.client.get('/api/v1/diary/11')
