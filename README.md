@@ -33,6 +33,7 @@ GET /api/v1/diary/<diary_id> |Retrieves a single diary entry | logged in user
 `Python 3+, python-pip, virtualenv`
 
 ### Installation
+
 Clone the repository
 
 ```
