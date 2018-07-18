@@ -63,6 +63,28 @@ class TestDiary(BaseClass):
         self.assertIn('Diary retrieved', response.data.decode())
         self.assertEqual(response.status_code, 200)
 
+    def test_modify_diary_on_empty_diary(self):
+        response = self.client.put('/api/v1/diary/1', data=self.new_diary_2)
+        self.assertIn('empty diary', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_modify_diary_with_empty_name(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.put('/api/v1/diary/1', data=self.empty_diary)
+        self.assertIn('Missing diary name', response.data.decode())
+        self.assertEqual(response.status_code, 422)
+
+    def test_modify_diary_with_no_id(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.put('/api/v1/diary/0', data=self.new_diary_2)
+        self.assertIn('Missing id', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    
+
+
+
+
 
 
 
