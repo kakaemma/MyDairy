@@ -32,6 +32,17 @@ class TestDiaryDescription(BaseClass):
                  on non existing entry', response.data.decode())
         self.assertEqual(response.status_code, 400)
 
+    def test_add_description_successfully(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.post('/api/v1/diary/1/item', data=self.desc)
+        self.assertIn('Diary description added', response.data.decode())
+        self.assertEqual(response.status_code, 201)
+
+
+
+
+
+
 
 
 
