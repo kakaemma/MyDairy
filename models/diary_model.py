@@ -50,6 +50,12 @@ class DiaryModel(object):
                 return this_diary.diary_id
 
     @staticmethod
+    def check_name(name):
+        for this_diary in DiaryModel.diary:
+            if this_diary.name == name:
+                return this_diary.name
+
+    @staticmethod
     def get_diary_by_id(search_id):
         response = []
         for this_diary in DiaryModel.diary:
