@@ -87,7 +87,7 @@ class Diary(object):
 
         if not diary_id:
             response = jsonify({'Error': 'Missing diary id'})
-            response.status_code = 422
+            response.status_code = 400
             return response
 
         if not diary_name:
@@ -103,14 +103,14 @@ class Diary(object):
 
         diary_entry = DiaryModel.check_diary_by_id(diary_id)
         if not diary_entry:
-            response = jsonify({'Error': 'Diary does not exist'})
+            response = jsonify({'Error': 'No diary matches the supplied id'})
             response.status_code = 400
             return response
 
         edit_entry = DiaryModel.edit_diary(diary_id, diary_name)
         if not edit_entry:
             response = jsonify({'Error': 'Can not edit diary with the same name'})
-            response.status_code = 400
+            response.status_code = 409
             return response
 
         response = jsonify({'Info': 'Diary successfully modified'})
