@@ -17,8 +17,24 @@ class DiaryItem(object):
             response.status_code = 400
             return response
 
+        if len(description) < 10:
+            response = jsonify({'Error': 'Description must have\
+             a minimum of 10 characters'})
+            response.status_code = 400
+            return response
+
         check_diaries = DiaryModel.check_for_diaries()
         if not check_diaries:
             response = jsonify({'Info': 'Can not add description on empty diary'})
             response.status_code = 400
             return response
+
+        check_entry_exists = DiaryModel.check_diary_by_id(diary_id)
+        if not check_entry_exists:
+            response = jsonify(
+                {'Error': 'Attempting to add description\
+                 on non existing entry'})
+            response.status_code = 400
+            return response
+
+
