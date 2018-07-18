@@ -68,5 +68,12 @@ class DiaryModel(object):
                 })
                 return response
 
-
-
+    @staticmethod
+    def edit_diary(diary_id, diary_name):
+        for this_diary in DiaryModel.diary:
+            if this_diary.diary_id == diary_id:
+                if this_diary.name == diary_name:
+                    return None
+                this_diary.name = diary_name
+                this_diary.date_modified = datetime.datetime.utcnow()
+                return this_diary.diary_id
