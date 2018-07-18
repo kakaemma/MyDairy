@@ -72,6 +72,9 @@ class BaseClass(unittest.TestCase):
         self.new_diary_2 = json.dumps({
             'name':'Uganda rally 2018'
         })
+        self.edit_diary = json.dumps({
+            'name':'Pearl rally 2018'
+        })
 
     def tearDown(self):
         DiaryModel.diary = []
