@@ -54,11 +54,6 @@ class Authentication(object):
             response.status_code = 422
             return response
 
-        if not validate_email(email):
-            response = jsonify({'Error': 'Invalid login email'})
-            response.status_code = 400
-            return
-
         id_for_user = UserModel.\
             check_if_user_is_valid(email, password)
         if not id_for_user:
