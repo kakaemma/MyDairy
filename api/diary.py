@@ -85,7 +85,7 @@ def modify_diary(version, diary_id):
     except KeyError:
         invalid_keys()
 
-@app.route('/api/<version>/diary/<int:diary_id>/item')
+@app.route('/api/<version>/diary/<int:diary_id>/item', methods=['POST'])
 def diary_description(version, diary_id):
     try:
         request.get_json(force=True)
