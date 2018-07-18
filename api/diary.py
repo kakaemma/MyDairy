@@ -58,6 +58,14 @@ def add_diary(version):
     except KeyError:
         invalid_keys()
 
+@app.route('/api/<version>/diary', methods=['GET'])
+def get_diaries(version):
+    try:
+        response = Diary.get_diaries()
+        return response
+    except KeyError:
+        invalid_keys()
+
 
 def invalid_keys():
     """
