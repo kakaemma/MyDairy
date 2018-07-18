@@ -32,6 +32,7 @@ def register(version):
         response = Authentication.registration(first_name,
                                                last_name, email, password)
         return response
+
     except KeyError:
         invalid_keys()
 
@@ -56,6 +57,7 @@ def add_diary(version):
         diary_name = request.json['name']
         response = Diary.new_diary(diary_name)
         return response
+
     except KeyError:
         invalid_keys()
 
@@ -64,6 +66,7 @@ def get_diaries(version):
     try:
         response = Diary.get_diaries()
         return response
+
     except KeyError:
         invalid_keys()
 
@@ -72,6 +75,7 @@ def get_single_diary(version, diary_id):
     try:
         response = Diary.get_diary(diary_id)
         return response
+
     except KeyError:
         invalid_keys()
 
@@ -82,6 +86,7 @@ def modify_diary(version, diary_id):
         name = request.json['name']
         response = Diary.edit_diary(diary_id, name)
         return response
+
     except KeyError:
         invalid_keys()
 
@@ -92,6 +97,21 @@ def diary_description(version, diary_id):
         description = request.json['desc']
         response = DiaryItem.add_diary_description(diary_id, description)
         return response
+
+    except KeyError:
+        invalid_keys()
+
+
+@app.route('/api/<version>/diary/<int:diary_id>/\
+item/<int:item_id', methods=['POST'])
+def diary_description(version, diary_id, item_id):
+    try:
+        request.get_json(force=True)
+        description = request.json['desc']
+        response = DiaryItem.edit_diary_description(\
+            diary_id, item_id, description)
+        return response
+
     except KeyError:
         invalid_keys()
 
