@@ -21,3 +21,23 @@ class TestDiary(BaseClass):
         self.assertIn('No diary entries available', response.data.decode())
         self.assertEqual(response.status_code, 404)
 
+    def test_get_single_diary_on_empty_diary(self):
+        response = self.client.get('/api/v1/diary/11')
+        self.assertIn('No diary entries added', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_get_single_diary_with_no_id(self):
+        response = self.client.get('/api/v1/diary/0')
+        self.assertIn('Missing diary id', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_get_single_diary_that_does_not_exist(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.get('/api/v1/diary/45')
+        self.assertIn('Diary does not exist', response.data.decode())
+        self.assertEqual(response.status_code, 404)
+
+
+
+
+
