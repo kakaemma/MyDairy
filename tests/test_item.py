@@ -89,6 +89,16 @@ class TestDiaryDescription(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
 
+    def test_edit_description_successfully(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        self.client.post('/api/v1/diary/1/item', data=self.desc)
+        response = self.client.put('/api/v1/diary/1/item/1', data=self.desc2)
+        response = self.client.put('/api/v1/diary/1/item/1', data=self.desc)
+        self.assertIn('Description changed',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 200)
+
+
 
 
 
