@@ -95,7 +95,15 @@ class TestAuthentication(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
 
-    def test_reset_password_successfull(self):
+    def test_reset_password_successfully(self):
+        self.client.post('/api/v1/register',
+                         data=self.user)
+        response = self.client.post('/api/v1/reset-password',
+                                    data=self.reset_details)
+        self.assertIn('Password successfully changes',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 200)
+
 
 
 
