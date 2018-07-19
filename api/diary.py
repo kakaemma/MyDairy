@@ -71,6 +71,7 @@ def reset_password(version):
 
 @app.route('/api/<version>/diary', methods=['POST'])
 @validate_content_type
+@validate_token
 def add_diary(version):
     try:
         request.get_json(force=True)
