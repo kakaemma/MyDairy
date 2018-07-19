@@ -2,6 +2,7 @@ from flask import jsonify,request,json,render_template
 from classes.auth import Authentication
 from classes.diary import Diary
 from classes.item import DiaryItem
+from utility.utility import validate_token, validate_content_type
 from api import create_app
 
 
@@ -69,6 +70,7 @@ def reset_password(version):
 
 
 @app.route('/api/<version>/diary', methods=['POST'])
+@validate_content_type
 def add_diary(version):
     try:
         request.get_json(force=True)
