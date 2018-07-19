@@ -101,6 +101,6 @@ class Authentication(object):
 
         reset_password = UserModel.reset_user_pass(email, new_pass)
         if reset_password:
-            response = jsonify({'info': 'Password reset successfully'})
+            response = jsonify({'info': 'Password successfully changed'})
             response.status_code = 200
             return response
