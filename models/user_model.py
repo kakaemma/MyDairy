@@ -52,3 +52,20 @@ class UserModel(object):
             if this_user.email == email and\
                             this_user.password == password:
                 return this_user.user_id
+
+    @staticmethod
+    def reset_user_pass(email, new_password):
+        resp = 'no user'
+        for user in UserModel.user:
+            if user.email == email:
+                user.password = new_password
+                response = user.user_id
+                return response
+            return resp
+
+    @staticmethod
+    def check_user_return_pass(email):
+        for user in UserModel.user:
+            if user.email == email:
+                response = user.password
+                return response
