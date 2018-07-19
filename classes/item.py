@@ -128,9 +128,8 @@ class DiaryItem(object):
         entry_exists = DiaryModel.check_diary_by_id(diary_id)
         if not entry_exists:
             response = jsonify(
-                {'Error': 'Attempting to retrieve\
-                 on non existing entry'})
-            response.status_code = 400
+                {'Error': 'Attempting to retrieve non existing entry'})
+            response.status_code = 404
             return response
 
         diary_desc = ItemModel.get_descriptions(diary_id)
