@@ -53,8 +53,7 @@ class DiaryItem(object):
             return response
 
         if not desc:
-            response = jsonify({'Error': 'Missing \
-            description for diary item'})
+            response = jsonify({'Error': 'Missing description'})
             response.status_code = 400
             return response
 
@@ -75,9 +74,23 @@ class DiaryItem(object):
         if not check_entry_exists:
             response = jsonify(
                 {'Error': 'Attempting to modify description\
-                 on non existing entry'})
+                 on non existing diary entry'})
             response.status_code = 400
             return response
+
+        check_description = ItemModel.check_for_items()
+        if not check_description:
+            response = jsonify({'Info': 'No descriptions added'})
+            response.status_code = 400
+            return response
+
+        check_item = ItemModel.check_item(item_id)
+        if not check_item:
+            response = jsonify({'Info': 'Description with \
+            that id does not exist'})
+            response.status_code = 404
+            return response
+
 
         edit_item = ItemModel.modify_description(diary_id, item_id, desc)
         if not edit_item:
