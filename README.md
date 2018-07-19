@@ -29,6 +29,7 @@ GET| /api/v1/diary |Retrieves all diary entries | False
 GET| /api/v1/diary/<diary_id> |Retrieves a single diary entry | False
 GET| /api/v1/diary/<diary_id>/item |Retrieves descriptions about a diary entry | False
 PUT| /api/v1/diary/<diary_id> |Modifies diary entry | False
+PUT| /api/v1/diary/<diary_id>/item/<item_id> |Modifies diary description | False
 
 
 
