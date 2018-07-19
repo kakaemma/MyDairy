@@ -92,11 +92,39 @@ class TestDiaryDescription(BaseClass):
     def test_edit_description_successfully(self):
         self.client.post('/api/v1/diary', data=self.new_diary_2)
         self.client.post('/api/v1/diary/1/item', data=self.desc)
-        response = self.client.put('/api/v1/diary/1/item/1', data=self.desc2)
+        self.client.put('/api/v1/diary/1/item/1', data=self.desc2)
         response = self.client.put('/api/v1/diary/1/item/1', data=self.desc)
         self.assertIn('Description changed',
                       response.data.decode())
         self.assertEqual(response.status_code, 200)
+
+    def test_get_descriptions_withno_id(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        self.client.post('/api/v1/diary/1/item', data=self.desc)
+        response = self.client.get('/api/v1/diary/0/item')
+        self.assertIn('Diary id missing', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_get_description_on_empty_diary(self):
+        response = self.client.get('/api/v1/diary/1/item')
+        self.assertIn('Can not retrieve \
+            description on empty diary',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_det_description_with_no_description(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        response = self.client.get('/api/v1/diary/1/item')
+        self.assertIn('No descriptions added',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+
+
+
+
+
+
 
 
 
