@@ -74,56 +74,30 @@ class TestAuthentication(BaseClass):
         self.assertIn('Login successful', response.data.decode())
         self.assertEqual(response.status_code, 200)
 
-    def test_reset_password_with_no_password(self):
-        """ Should throw error for non existing email or password"""
-
-        self.client.post('/api/v1/register',
-                                    content_type='application/json',
-                         data=self.user)
-
+    def test_reset_password_with_empty_details(self):
         response = self.client.post('/api/v1/reset-password',
-                                    content_type='application/json',
                                     data=self.empty_reset_password)
-        self.assertIn('Missing email or password', response.data.decode())
-        self.assertEqual(response.status_code, 422)
+        self.assertIn("Missing email or password", response.data.decode())
+        self.assertEqual(response.status_code, 400)
 
-    def test_reset_password_with_non_existing_email(self):
-        """ Throw No account with that email"""
-        self.client.post('/api/v1/register',
-                                    content_type='application/json',
-                         data=self.user)
-
+    def test_reset_password_with_wrong_values(self):
         response = self.client.post('/api/v1/reset-password',
-                                    content_type='application/json',
                                     data=self.wrong_reset_details)
-        self.assertIn('Email and password do not exist',
+        self.assertIn("Email and password do not exist", response.data.decode())
+        self.assertEqual(response.status_code, 401)
+
+    def test_reset_password_with_same_old_password(self):
+        self.client.post('/api/v1/register',
+                         data=self.user)
+        response = self.client.post('/api/v1/reset-password',
+                                    data=self.same_old_password)
+        self.assertIn('Old password and new password are the same',
                       response.data.decode())
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 400)
+
+    def test_reset_password_successfull(self):
 
 
-    # def test_reset_password_with_wrong_password(self):
-    #     """ Throw No account with that email"""
-    #     self.client.post('/api/v1/register',
-    #                                 content_type='application/json',
-    #                      data=self.user)
-    #
-    #     response = self.client.post('/api/v1/reset-password',
-    #                                 content_type='application/json',
-    #                                 data=self.wrong_reset_details)
-    #     self.assertEqual(response.status_code, 403)
-    #     self.assertIn('Email and password do not exist',
-    #                   response.data.decode())
-    #
-    # def test_reset_password_successfully(self):
-    #     """ Should show password reset successfully"""
-    #     self.client.post('/api/v1/register',
-    #                                 content_type='application/json',
-    #                      data=self.reset_user)
-    #     response = self.client.post('/api/v1/reset-password',
-    #                                 content_type='application/json',
-    #                                 data=self.reset_details)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertIn('Password reset successfully',
-    #                   response.data.decode())
-    #
-    #
+
+
+
