@@ -100,6 +100,7 @@ def get_single_diary(version, diary_id):
         invalid_keys()
 
 @app.route('/api/<version>/diary/<int:diary_id>', methods=['PUT'])
+@validate_content_type
 def modify_diary(version, diary_id):
     try:
         request.get_json(force=True)
@@ -111,6 +112,7 @@ def modify_diary(version, diary_id):
         invalid_keys()
 
 @app.route('/api/<version>/diary/<int:diary_id>/item', methods=['POST'])
+@validate_content_type
 def diary_description(version, diary_id):
     try:
         request.get_json(force=True)
@@ -124,6 +126,7 @@ def diary_description(version, diary_id):
 
 @app.route('/api/<version>/diary/<int:diary_id>/\
 item/<int:item_id>', methods=['PUT'])
+@validate_content_type
 def edit_description(version, diary_id, item_id):
     try:
         request.get_json(force=True)
@@ -135,8 +138,9 @@ def edit_description(version, diary_id, item_id):
     except KeyError:
         invalid_keys()
 
+
 @app.route('/api/<version>/diary/<int:diary_id>/item', methods=['GET'])
-def get_description_fo_diary(version, diary_id):
+def get_description_for_diary(version, diary_id):
     try:
         response = DiaryItem.get_diary_descriptions(diary_id)
         return response
