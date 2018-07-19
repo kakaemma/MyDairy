@@ -23,6 +23,7 @@ HTTP Method | Endpoint | Description| Public Access
 ------------ | ------------- | ------------- | ------------- 
 POST| /api/v1/register | Registers a user | True
 POST| /api/v1/login |Logs a user in | True
+POST| /api/v1/reset-password |Resets user password | False
 POST| /api/v1/diary |Adds a diary entry | False
 POST| /api/v1/diary/<diary_id>/item |Adds description to a diary entry | False
 GET| /api/v1/diary |Retrieves all diary entries | False
