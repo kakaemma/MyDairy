@@ -16,7 +16,7 @@ class TestDiary(BaseClass):
                                     content_type='text/plain',
                                     data=self.new_diary)
         self.assertIn('Content-Type not specified as application/json', response.data.decode())
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 400)
 
 
     def test_add_diary_successfully(self):
