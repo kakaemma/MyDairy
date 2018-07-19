@@ -68,3 +68,39 @@ class Authentication(object):
         response.status_code = 200
         return response
 
+    @staticmethod
+    def reset_password(email, old_pass, new_pass):
+        """
+        Handles reset password
+        :param email: 
+        :param old_pass: 
+        :param new_pass: 
+        :return: 
+        """
+        if not email or not new_pass or not old_pass:
+            response = jsonify({'Error': 'Missing email or password'})
+            response.status_code = 400
+            return response
+
+        check_for_user_by_email = UserModel.check_user_return_pass(email)
+
+        if not check_for_user_by_email or not old_pass == \
+                check_for_user_by_email:
+            response = jsonify({
+                'Error': 'Email and password do not exist'
+            })
+            response.status_code = 401
+            return response
+
+        if old_pass == new_pass:
+            response = jsonify({
+                'Error': 'Old password and new password are the same'
+            })
+            response.status_code = 400
+            return response
+
+        reset_password = UserModel.reset_user_pass(email, new_pass)
+        if reset_password:
+            response = jsonify({'info': 'Password reset successfully'})
+            response.status_code = 200
+            return response
