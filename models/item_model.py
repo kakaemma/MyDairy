@@ -51,3 +51,9 @@ class ItemModel(object):
         """ This checks whether there are any diary entries"""
         if len(ItemModel.description) >=1:
             return (len(ItemModel.description))
+
+    @staticmethod
+    def check_item(item_id):
+        for item in ItemModel.description:
+            if item.item_id == item_id:
+                return item_id
