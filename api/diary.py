@@ -50,6 +50,24 @@ def login(version):
         invalid_keys()
 
 
+@app.route('/api/<version>/reset-password', methods=['POST'])
+def reset_password(version):
+    """
+    End point for reset password
+    """
+
+    request.get_json(force=True)
+    try:
+        email = request.json['email']
+        old_pass = request.json['password']
+        new_pass = request.json['new_password']
+        response = Authentication.reset_password(email, old_pass, new_pass)
+        return response
+
+    except KeyError:
+        invalid_keys()
+
+
 @app.route('/api/<version>/diary', methods=['POST'])
 def add_diary(version):
     try:
@@ -123,6 +141,8 @@ def get_description_fo_diary(version, diary_id):
 
     except KeyError:
         invalid_keys()
+
+
 
 
 def invalid_keys():
