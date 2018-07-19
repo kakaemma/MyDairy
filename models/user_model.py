@@ -62,6 +62,12 @@ class UserModel(object):
                 return response
 
     @staticmethod
+    def get_user_by_id(user_id):
+        for user in UserModel.user:
+            if user.user_id == user_id:
+                return user.user_id
+
+    @staticmethod
     def check_user_return_pass(email):
         for user in UserModel.user:
             if user.email == email:
