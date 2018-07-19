@@ -3,6 +3,7 @@ from flask import json
 from api.diary import app
 from instance.config import application_config
 from models.diary_model import DiaryModel
+from models.item_model import ItemModel
 
 class BaseClass(unittest.TestCase):
     def setUp(self):
@@ -84,7 +85,11 @@ class BaseClass(unittest.TestCase):
         self.desc = json.dumps({
             'desc':'Andela Uganda cohort 10 boot camp'
         })
+        self.desc2 = json.dumps({
+            'desc': 'Andela Uganda cohort 10 boot camp week one'
+        })
 
     def tearDown(self):
         DiaryModel.diary = []
+        ItemModel.description = []
 
