@@ -60,9 +60,7 @@ psycopg2==2.7.4
 py==1.5.3
 pycparser==2.18
 PyJWT==1.4.2
-pylint==1.8.4
-pysocks==1.6.8
-pytest==3.5.0
+
 
 
 
