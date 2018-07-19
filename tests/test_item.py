@@ -127,6 +127,15 @@ class TestDiaryDescription(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 404)
 
+    def test_get_description_successfully(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        self.client.post('/api/v1/diary/1/item', data=self.desc)
+        response = self.client.get('/api/v1/diary/1/item')
+        self.assertIn('Diary with id',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 200)
+
+
 
 
 
