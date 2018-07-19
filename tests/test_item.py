@@ -81,6 +81,14 @@ class TestDiaryDescription(BaseClass):
             that id does not exist', response.data.decode())
         self.assertEqual(response.status_code, 404)
 
+    def test_edit_description_with_same_name(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        self.client.post('/api/v1/diary/1/item', data=self.desc)
+        response = self.client.put('/api/v1/diary/1/item/1', data=self.desc)
+        self.assertIn('Can not edit item with same description',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
 
 
 
