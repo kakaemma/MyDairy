@@ -73,3 +73,17 @@ class TestAuthentication(BaseClass):
                                     data=self.login_user)
         self.assertIn('Login successful', response.data.decode())
         self.assertEqual(response.status_code, 200)
+
+    def test_reset_password_with_no_password(self):
+        """ Should throw error for non existing email or password"""
+
+        self.client.post('/api/v1/register',
+                                    content_type='application/json',
+                         data=self.user)
+
+        response = self.client.post('/api/v1/reset-password',
+                                    content_type='application/json',
+                                    data=self.empty_reset_password)
+        self.assertIn('Missing email or password', response.data.decode())
+        self.assertEqual(response.status_code, 422)
+    
