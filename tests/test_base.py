@@ -111,6 +111,16 @@ class BaseClass(unittest.TestCase):
             'desc': 'Andela Uganda cohort 10 boot camp week one'
         })
 
+        self.client.post('/api/v1/register',
+                                    content_type='text/plain',
+                                    data=self.user)
+        response = self.client.post('/api/v1/login',
+                                    content_type='text/plain',
+                                    data=self.login_user)
+        json_data = json.loads(response.data.decode())
+        self.token = json_data['token']
+        self.header = {'Authorization': self.token}
+
     def tearDown(self):
         DiaryModel.diary = []
         ItemModel.description = []
