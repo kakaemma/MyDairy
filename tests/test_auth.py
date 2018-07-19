@@ -86,4 +86,44 @@ class TestAuthentication(BaseClass):
                                     data=self.empty_reset_password)
         self.assertIn('Missing email or password', response.data.decode())
         self.assertEqual(response.status_code, 422)
-    
+
+    def test_reset_password_with_non_existing_email(self):
+        """ Throw No account with that email"""
+        self.client.post('/api/v1/register',
+                                    content_type='application/json',
+                         data=self.user)
+
+        response = self.client.post('/api/v1/reset-password',
+                                    content_type='application/json',
+                                    data=self.wrong_reset_details)
+        self.assertIn('Email and password do not exist',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 403)
+
+
+    # def test_reset_password_with_wrong_password(self):
+    #     """ Throw No account with that email"""
+    #     self.client.post('/api/v1/register',
+    #                                 content_type='application/json',
+    #                      data=self.user)
+    #
+    #     response = self.client.post('/api/v1/reset-password',
+    #                                 content_type='application/json',
+    #                                 data=self.wrong_reset_details)
+    #     self.assertEqual(response.status_code, 403)
+    #     self.assertIn('Email and password do not exist',
+    #                   response.data.decode())
+    #
+    # def test_reset_password_successfully(self):
+    #     """ Should show password reset successfully"""
+    #     self.client.post('/api/v1/register',
+    #                                 content_type='application/json',
+    #                      data=self.reset_user)
+    #     response = self.client.post('/api/v1/reset-password',
+    #                                 content_type='application/json',
+    #                                 data=self.reset_details)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertIn('Password reset successfully',
+    #                   response.data.decode())
+    #
+    #
