@@ -119,6 +119,21 @@ class TestDiaryDescription(BaseClass):
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
 
+    def test_get_non_existing_description(self):
+        self.client.post('/api/v1/diary', data=self.new_diary_2)
+        self.client.post('/api/v1/diary/1/item', data=self.desc)
+        response = self.client.get('/api/v1/diary/3/item')
+        self.assertIn('Attempting to retrieve non existing entry',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 404)
+
+
+
+
+
+
+
+
 
 
 
