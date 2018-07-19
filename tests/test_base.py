@@ -4,6 +4,7 @@ from api.diary import app
 from instance.config import application_config
 from models.diary_model import DiaryModel
 from models.item_model import ItemModel
+from models.user_model import UserModel
 
 class BaseClass(unittest.TestCase):
     def setUp(self):
@@ -63,6 +64,27 @@ class BaseClass(unittest.TestCase):
             'email': 'kakaemma@gmail.com',
             'password': '1234567'
         })
+        self.empty_reset_password = json.dumps({
+            'email': '',
+            'password': '',
+            'new_password': ''
+        })
+        self.wrong_reset_details = json.dumps({
+            'email': 'emma1@gmail.com',
+            'password': '1234568',
+            'new_password': 'qwertyui'
+        })
+
+        self.same_old_password = json.dumps({
+            'email': 'kakaemma@gmail.com',
+            'password': '1234567',
+            'new_password': '1234567'
+        })
+        self.reset_details = json.dumps({
+            'email': 'kakaemma@gmail.com',
+            'password': '1234567',
+            'new_password': '7654321'
+        })
 
         self.empty_diary = json.dumps({
             'name':''
@@ -92,4 +114,5 @@ class BaseClass(unittest.TestCase):
     def tearDown(self):
         DiaryModel.diary = []
         ItemModel.description = []
+        UserModel.user = []
 
