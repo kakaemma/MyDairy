@@ -100,7 +100,7 @@ class TestAuthentication(BaseClass):
                          data=self.user)
         response = self.client.post('/api/v1/reset-password',
                                     data=self.reset_details)
-        self.assertIn('Password successfully changes',
+        self.assertIn('Password successfully changed',
                       response.data.decode())
         self.assertEqual(response.status_code, 200)
 
