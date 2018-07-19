@@ -38,6 +38,35 @@ class TestDiaryDescription(BaseClass):
         self.assertIn('Diary description added', response.data.decode())
         self.assertEqual(response.status_code, 201)
 
+    def test_edit_diary_description_with_no_id(self):
+        response = self.client.put('/api/v1/diary/0/item/0', data=self.desc)
+        self.assertIn('Missing id', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_edit_diary_with_empty_description(self):
+        response = self.client.put('/api/v1/diary/1/item/1', data=self.empty_desc)
+        self.assertIn('Missing description', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_edit_diary_with_short_description(self):
+        response = self.client.put('/api/v1/diary/1/item/1', data=self.short_desc)
+        self.assertIn('Description must have\
+             a minimum of 10 characters', response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
