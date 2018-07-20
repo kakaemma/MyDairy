@@ -5,6 +5,8 @@ from instance.config import application_config
 from models.diary_model import DiaryModel
 from models.item_model import ItemModel
 from models.user_model import UserModel
+import jwt
+import datetime
 
 class BaseClass(unittest.TestCase):
     def setUp(self):
@@ -120,6 +122,21 @@ class BaseClass(unittest.TestCase):
         json_data = json.loads(response.data.decode())
         self.token = json_data['token']
         self.header = {'Authorization': self.token}
+
+        payload = {
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
+            'iat': datetime.datetime.utcnow(),
+            'sub':7
+        }
+        self.invalid_token = jwt.encode(
+            payload,
+            '2018secret',
+            algorithm='HS256'
+        )
+        self.wrong_header = {'Authorization': self.invalid_token}
+
+
+
 
     def tearDown(self):
         DiaryModel.diary = []
