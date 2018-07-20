@@ -61,10 +61,14 @@ def decode_auth_token(token):
         user = payload['sub']
         return user
     except jwt.ExpiredSignature:
-        return 'Token expired please login again'
+        response = jsonify({'Error': 'Token expired please login again'})
+        response.status_code = 401
+        return response
 
     except jwt.InvalidTokenError:
-        return 'Invalid token. Please login again \n'
+        response = jsonify({'Error':  'Invalid token'})
+        response.status_code = 401
+        return response
 
 def validate_token(func):
     @wraps(func)
