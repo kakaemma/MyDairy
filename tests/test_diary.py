@@ -30,7 +30,7 @@ class TestDiary(BaseClass):
                                     headers=self.header)
         self.assertIn('Content-Type not specified as application/json',
                       response.data.decode())
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 401)
 
     def test_wrong_token(self):
         """ Return invalid token"""
