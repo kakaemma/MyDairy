@@ -112,10 +112,10 @@ class BaseClass(unittest.TestCase):
         })
 
         self.client.post('/api/v1/register',
-                                    content_type='text/plain',
+                                    content_type='application/json',
                                     data=self.user)
         response = self.client.post('/api/v1/login',
-                                    content_type='text/plain',
+                                    content_type='application/json',
                                     data=self.login_user)
         json_data = json.loads(response.data.decode())
         self.token = json_data['token']
