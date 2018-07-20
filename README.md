@@ -13,7 +13,12 @@ A user can;
 * Login
 * Create a diary
 * Add description to the diary
-* View the diary items
+* View Diaries
+* View diary Descriptions
+* Edit Diary entries
+* Edit Diary descriptions
+* Change password
+
 
 ### API resources
 
