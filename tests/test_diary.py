@@ -30,7 +30,7 @@ class TestDiary(BaseClass):
                                     headers=self.header)
         self.assertIn('Content-Type not specified as application/json',
                       response.data.decode())
-        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.status_code, 400)
 
     def test_wrong_token(self):
         """ Return invalid token"""
@@ -39,7 +39,7 @@ class TestDiary(BaseClass):
                                     data=self.new_diary,
                                     headers=self.wrong_header)
         self.assertIn('Mismatching or wrong token', response.data.decode())
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 401)
 
 
     def test_add_diary_successfully(self):
