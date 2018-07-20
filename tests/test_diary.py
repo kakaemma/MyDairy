@@ -13,6 +13,7 @@ class TestDiary(BaseClass):
         self.assertEqual(response.status_code, 400)
 
     def test_add_diary_without_token(self):
+        """ Should return there is no token"""
         response = self.client.post('/api/v1/diary',
                                     content_type='application/json',
                                     data=self.empty_diary)
@@ -20,12 +21,24 @@ class TestDiary(BaseClass):
                          response.data.decode())
         self.assertEqual(response.status_code, 401)
 
+
     def test_add_diary_with_no_json(self):
+        """ Return content-type not json"""
         response = self.client.post('/api/v1/diary',
                                     content_type='text/plain',
                                     data=self.new_diary,
                                     headers=self.header)
-        self.assertIn('Content-Type not specified as application/json', response.data.decode())
+        self.assertIn('Content-Type not specified as application/json',
+                      response.data.decode())
+        self.assertEqual(response.status_code, 400)
+
+    def test_wrong_token(self):
+        """ Return invalid token"""
+        response = self.client.post('/api/v1/diary',
+                                    content_type='application/json',
+                                    data=self.new_diary,
+                                    headers=self.wrong_header)
+        self.assertIn('Mismatching or wrong token', response.data.decode())
         self.assertEqual(response.status_code, 400)
 
 
