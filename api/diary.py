@@ -6,7 +6,7 @@ from utility.utility import validate_token, validate_content_type
 from api import create_app
 
 
-app = create_app('ProductionEnv')
+app = create_app('DevelopmentEnv')
 
 @app.route('/')
 def index():
