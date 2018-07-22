@@ -18,6 +18,7 @@ def index():
 
 
 @app.route('/api/<version>/register', methods=['POST'])
+@validate_content_type
 def register(version):
     """
     This end point registers a user
@@ -39,6 +40,7 @@ def register(version):
 
 
 @app.route('/api/<version>/login', methods=['POST'])
+@validate_content_type
 def login(version):
     try:
         request.get_json(force=True)
