@@ -1,0 +1,276 @@
+FORMAT: 1A
+HOST: https://diary-2018.herokuapp.com/
+
+# MyDiary
+
+MyDiary is a simple API allowing users to register, login and create, update, 
+delete diary entries and descriptions
+
+## Register [/api/v1/register]
+
+### Register a new user [POST]
+You may register a new user using this action. It takes a JSON
+object containing a first name, last name, email and password
+
++ Request (application/json)
+
+        {
+            "f_name": "Ronald",
+            "l_name": "Toraac",
+            "email": "rtorac@gmail.com",
+            "password": "secret"
+            
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/v1/register
+
+    + Body
+
+            {
+                "Info": "User successfully registered",
+            }
+
+## Login [/api/v1/login]            
+
+### Login a user [POST]
+
+You may login a user using this action. It takes a JSON
+object containing an email and password
+
++ Request (application/json)
+
+        {
+            "email": "rtorac@gmail.com",
+            "password": "secret"
+            
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/login
+
+    + Body
+
+            {
+                "Status": "rtorac@gmail.com Login Successful",
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MDIwNzA2MTEsImlhdCI6MTUwMjA2NzAxMSwic3ViIjo0fQ.QwmwUemah0Hl7C5EXBPS36qFlNV5-iN8pJx78jimdrI"
+            }
+
+## Add Diary [/api/v1/diary]            
+
+### Add a diary entry [POST]
+
+You add a diary using this action. It takes a JSON
+object containing a diary name and
+Authorization token in header
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: token
+    + Body
+
+            {
+                "name": "Rally Uganda",
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary
+
+    + Body
+
+            {
+                'Info': 'Diary successfully added',
+            }
+    
+## Retrieve Diary's [/api/v1/]  
+### Retrieve diary entries [GET]
+
+You retrieve diary entries using this action. 
+Request contains Authorization token in header
+
+    + Headers
+
+            Authorization: token
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary
+
+    + Body
+            
+            [
+                {
+                    "My Diary entries": [
+                        {
+                            "Date Modified": "null",
+                            "Date created": "Sun, 22 Jul 2018 13:49:27 GMT",
+                            "id": 1,
+                            "name": "Rally Uganda"
+                        },
+                        {
+                            "Date Modified": "null",
+                            "Date created": "Sun, 22 Jul 2018 16:49:27 GMT",
+                            "id": 1,
+                            "name": "Racing Kenya"
+                        }
+                        
+                    ]
+                }
+            ]
+
+
+## Access Diary [/api/v1/diary/diary_id]            
+
+### Retrieve a single diary entry [GET]
+
+You retrieve a single diary using this action. 
+Request contains Authorization token in header
+
+    + Headers
+
+            Authorization: Token
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary/diary_id
+
+    + Body
+
+                {
+                    "Date Modified": "null",
+                    "Date created": "Sun, 22 Jul 2018 13:49:27 GMT",
+                    "id": 1,
+                    "name": "Rally Uganda"
+                }
+
+## Update diary [/api/v1/diary/diary_id]   
+### Update a diary entry [PUT]
+
+You update a bucket using this action. 
+Request contains Authorization token in header
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: token
+        
+    + Body
+
+            {
+                "name": "The best tour in africa"
+            }
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary/diary_id
+
+    + Body
+
+            {
+                
+                "Info": "Diary successfully modified"
+            }
+
+## Delete diary [/api/v1/diary/diary_id] 
+### Delete a diary entry [DELETE]
+
+You delete a diary entry using this action. 
+Request contains Authorization token in header
+
+
+    + Headers
+
+            Authorization: token
+        
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary/diary_id
+
+    + Body
+
+            {
+                'Info': 'Diary entry deleted'
+            }
+
+## Add Descriptions [/api/v1/diary/1/items]            
+
+### Add diary descriptions to diary entries [POST]
+
+You add a diary description item using this action. It takes a JSON
+object containing an description name
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: token
+    + Body
+
+            {
+                "desc": "Win first rally in Uganda"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary/1/item
+
+    + Body
+
+            {
+                'Info': 'Diary description added'
+            }
+
+## Modify Description item [/api/v1/diary/1/item/item_id]            
+
+### Edit diary description [PUT]
+
+You may edit a diary description item using this action. It takes a JSON
+object containing an description name
+
++ Request (application/json)
+
+
+    + Headers
+
+            Authorization: Token
+    + Body
+
+            {
+                "desc": "Win  all rally's on the calender"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /api/v1/diary/1/item/1
+
+    + Body
+
+            {
+                'Info': 'Diary successfully modified',
+            }
