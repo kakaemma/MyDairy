@@ -73,3 +73,9 @@ Install postman and access the application at:
 ```
 http://localhost:5000
 ```
+### Testing
+The application tests are based on python's unit testing framework unittest. to run the test with nose
+> nosetests tests
+
+Note: nosetests will only work if you have nose intalled.
+
