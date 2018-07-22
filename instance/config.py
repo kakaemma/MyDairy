@@ -5,6 +5,9 @@ class MainConfiguration(object):
     """ Parent configuration class"""
     DEBUG = False
     CSRF_ENABLED = True
+    LEVEL = DEBUG
+    LOGFILE = "logs/diary.log"
+
 
 
 class DevelopmentEnvironment(MainConfiguration):
