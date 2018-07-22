@@ -63,7 +63,7 @@ class Authentication(object):
             return response
 
         response = jsonify({
-            'info': 'Login successful',
+            'info': email + 'Login successful',
             'token': encode_auth_token(id_for_user).decode()
         })
         response.status_code = 200
