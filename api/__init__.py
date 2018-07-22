@@ -17,5 +17,5 @@ def create_app(config_name):
     file_handler.setFormatter(formatter)
     app.logger.setLevel(app.config.get('LEVEL'))
     app.logger.addHandler(file_handler)
-    
+
     return app
