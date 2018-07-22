@@ -25,6 +25,7 @@ omit =
     */pydoc.py/*
     */decimal.py/*
     */env/*
+    */logging/*
     
     
 
