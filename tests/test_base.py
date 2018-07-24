@@ -1,10 +1,10 @@
 import unittest
 from flask import json
-from api.diary import app
+from app.views import app
 from instance.config import application_config
-from models.diary_model import DiaryModel
-from models.item_model import ItemModel
-from models.user_model import UserModel
+from app.models import DiaryModel
+from app.models import ItemModel
+from app.models import UserModel
 import jwt
 import datetime
 
