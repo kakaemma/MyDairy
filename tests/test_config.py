@@ -1,4 +1,4 @@
-from api.diary import app
+from app.views import app
 from flask_testing import TestCase
 import unittest
 
