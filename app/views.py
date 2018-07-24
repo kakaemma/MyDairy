@@ -3,7 +3,7 @@ from classes.auth import Authentication
 from classes.diary import Diary
 from classes.item import DiaryItem
 from utility.utility import validate_token, validate_content_type
-from api import create_app
+from app import create_app
 
 
 app = create_app('DevelopmentEnv')
