@@ -2,7 +2,7 @@
 
 
 class MainConfiguration(object):
-    """ Parent configuration class"""
+    """ Main configuration class"""
     DEBUG = False
     CSRF_ENABLED = True
 
