@@ -1,7 +1,8 @@
 from flask import jsonify
 from validate_email import validate_email
-from utility.utility import encode_auth_token
-from app.models import *
+
+from app.models import UserModel, DiaryModel, ItemModel
+from app.utility import encode_auth_token
 
 
 class Authentication(object):
