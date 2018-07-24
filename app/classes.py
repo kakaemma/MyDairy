@@ -1,8 +1,6 @@
 from flask import jsonify
 from validate_email import validate_email
-
 from app.models import UserModel, DiaryModel, ItemModel
-from app.utility import encode_auth_token
 
 
 class Authentication(object):
@@ -66,7 +64,6 @@ class Authentication(object):
 
         response = jsonify({
             'info': email + 'Login successful',
-            'token': encode_auth_token(id_for_user).decode()
         })
         response.status_code = 200
         return response
