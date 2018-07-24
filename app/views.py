@@ -1,10 +1,7 @@
-from flask import jsonify,request,json,render_template
-from classes.auth import Authentication
-from classes.diary import Diary
-from classes.item import DiaryItem
-from utility.utility import validate_token, validate_content_type
+from flask import jsonify, request, render_template
 from app import create_app
-
+from app.classes import Authentication, DiaryItem, Diary
+from app.validation_decorators import validate_content_type
 
 app = create_app('DevelopmentEnv')
 
@@ -55,7 +52,6 @@ def login(version):
 
 @app.route('/api/<version>/reset-password', methods=['POST'])
 @validate_content_type
-@validate_token
 def reset_password(version):
     """
     End point for reset password
@@ -75,7 +71,6 @@ def reset_password(version):
 
 @app.route('/api/<version>/diary', methods=['POST'])
 @validate_content_type
-@validate_token
 def add_diary(version):
     try:
         request.get_json(force=True)
@@ -87,7 +82,6 @@ def add_diary(version):
         invalid_keys()
 
 @app.route('/api/<version>/diary', methods=['GET'])
-@validate_token
 def get_diaries(version):
     try:
         response = Diary.get_diaries()
@@ -97,7 +91,6 @@ def get_diaries(version):
         invalid_keys()
 
 @app.route('/api/<version>/diary/<int:diary_id>', methods=['GET'])
-@validate_token
 def get_single_diary(version, diary_id):
     try:
         response = Diary.get_diary(diary_id)
@@ -108,7 +101,6 @@ def get_single_diary(version, diary_id):
 
 @app.route('/api/<version>/diary/<int:diary_id>', methods=['PUT'])
 @validate_content_type
-@validate_token
 def modify_diary(version, diary_id):
     try:
         request.get_json(force=True)
@@ -121,7 +113,6 @@ def modify_diary(version, diary_id):
 
 @app.route('/api/<version>/diary/<int:diary_id>/item', methods=['POST'])
 @validate_content_type
-@validate_token
 def diary_description(version, diary_id):
     try:
         request.get_json(force=True)
@@ -136,7 +127,6 @@ def diary_description(version, diary_id):
 @app.route('/api/<version>/diary/<int:diary_id>/\
 item/<int:item_id>', methods=['PUT'])
 @validate_content_type
-@validate_token
 def edit_description(version, diary_id, item_id):
     try:
         request.get_json(force=True)
@@ -150,7 +140,6 @@ def edit_description(version, diary_id, item_id):
 
 
 @app.route('/api/<version>/diary/<int:diary_id>/item', methods=['GET'])
-@validate_token
 def get_description_for_diary(version, diary_id):
     try:
         response = DiaryItem.get_diary_descriptions(diary_id)
