@@ -91,7 +91,7 @@ class TestAuthentication(BaseClass):
         response = self.client.post('/api/v1/reset-password',
                                     content_type='application/json',
                                     data=self.empty_reset_password,
-                                    headers=self.header)
+                                    )
         self.assertIn("Missing email or password", response.data.decode())
         self.assertEqual(response.status_code, 400)
 
@@ -99,7 +99,6 @@ class TestAuthentication(BaseClass):
         response = self.client.post('/api/v1/reset-password',
                                     content_type='application/json',
                                     data=self.wrong_reset_details,
-                                    headers=self.header
                                     )
         self.assertIn("Email and password do not exist", response.data.decode())
         self.assertEqual(response.status_code, 401)
@@ -111,7 +110,7 @@ class TestAuthentication(BaseClass):
         response = self.client.post('/api/v1/reset-password',
                                     content_type='application/json',
                                     data=self.same_old_password,
-                                    headers=self.header)
+                                    )
         self.assertIn('Old password and new password are the same',
                       response.data.decode())
         self.assertEqual(response.status_code, 400)
@@ -123,7 +122,7 @@ class TestAuthentication(BaseClass):
         response = self.client.post('/api/v1/reset-password',
                                     content_type='application/json',
                                     data=self.reset_details,
-                                    headers=self.header)
+                                   )
         self.assertIn('Password successfully changed',
                       response.data.decode())
         self.assertEqual(response.status_code, 200)
